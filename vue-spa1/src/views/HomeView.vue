@@ -1,9 +1,13 @@
 <script setup>
-import NavBar from "../components/NavBar.vue";
+import HeroImg from "../components/HeroImg.vue";
 </script>
 
 <template>
-  <main>
-    <NavBar />
-  </main>
+  <HeroImg />
 </template>
+
+<style>
+.welcome {
+  color: grey;
+}
+</style>
