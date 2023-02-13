@@ -6,6 +6,12 @@
       class="img-fluid"
       alt="space"
     />
+    <div class="home">
+      <h2>{{ home }}</h2>
+    </div>
+    <div class="centered">
+      <h1 :style="{ color: color }">FINAL SPACE</h1>
+    </div>
     <!-- Card -->
 
     <div class="row">
@@ -16,7 +22,11 @@
           class="card"
           style="width: 18rem"
         >
-          <img :src="character.img_url" class="card-img-top" alt="Aliens" />
+          <img
+            :src="character.img_url"
+            class="card-img-top rounded"
+            :alt="character.name"
+          />
           <div class="card-body">
             <h5 class="card-title">MY NAME IS: {{ character.name }}</h5>
             <p class="card-text">THEY CALL ME!! {{ character.alias[2] }}</p>
@@ -25,20 +35,17 @@
             <p class="card-text">
               Abilities: {{ character.abilities[0] + character.abilities[1] }}
             </p>
+            <button @click="getQuote()" type="button" class="btn btn-secondary">
+              Let me tell you something!
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="home">
-      <h2>{{ home }}</h2>
+    <div v-for="quote in quotes" :key="quote.id" class="quotes">
+      <h2>{{ quote.quote }}</h2>
     </div>
-    <div class="centered">
-      <h1>FINAL SPACE</h1>
-    </div>
-
-    <!-- <button type="button" class="btn btn-danger" @click="getCharacters">
-      Danger
-    </button> -->
+    <!-- end hero div -->
   </div>
 </template>
 <script>
@@ -47,7 +54,9 @@ export default {
   data() {
     return {
       characters: [],
+      quotes: [],
       home: "Welcome Home Space cowboy",
+      color: "firebrick",
     };
   },
   created() {
@@ -56,9 +65,15 @@ export default {
   methods: {
     async getCharacters() {
       axios
-        .get("https://finalspaceapi.com/api/v0/character?limit=10")
+        .get("https://finalspaceapi.com/api/v0/character?limit=4")
         .then((response) => (this.characters = response.data));
       console.log(this.characters);
+    },
+    async getQuote() {
+      axios
+        .get("https://finalspaceapi.com/api/v0/quote/?limit=1")
+        .then((response) => (this.quotes = response.data));
+      console.log(this.quotes);
     },
   },
 };
@@ -90,14 +105,11 @@ export default {
   color: white;
   font-size: 100px;
 }
-button {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-img {
+
+#wrapper-hero > img {
   opacity: 0.9;
+  height: 150vh;
+  width: 100%;
 }
 .home {
   position: absolute;
@@ -114,5 +126,12 @@ img {
   transform: translate(-50%, -50%);
   color: white;
   font-size: 3rem;
+}
+#wrapper-hero > div.quotes {
+  position: absolute;
+  top: 140%;
+  left: 40%;
+  color: black;
+  text-align: center;
 }
 </style>

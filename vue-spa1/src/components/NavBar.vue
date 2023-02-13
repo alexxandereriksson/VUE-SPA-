@@ -4,10 +4,12 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <nav
     class="navbar navbar-expand-lg bg-body-tertiary"
-    style="background-color: grey"
+    style="background-color: #22343c"
   >
     <div class="container-fluid">
-      <RouterLink class="navbar-brand" to="/">HomesweetHome</RouterLink>
+      <RouterLink class="navbar-brand" style="color: white" to="/"
+        >Home</RouterLink
+      >
 
       <button
         class="navbar-toggler"
@@ -23,7 +25,11 @@ import { RouterLink, RouterView } from "vue-router";
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <RouterLink class="nav-link active" aria-current="page" to="/about"
+            <RouterLink
+              class="nav-link active"
+              aria-current="page"
+              style="color: white"
+              to="/about"
               >About</RouterLink
             >
           </li>
@@ -33,5 +39,3 @@ import { RouterLink, RouterView } from "vue-router";
   </nav>
   <RouterView />
 </template>
-
-<style scoped></style>
