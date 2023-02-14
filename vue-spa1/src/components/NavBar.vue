@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import welcomeProps from "./welcomeProps.vue";
 </script>
 <template>
   <nav
@@ -36,6 +37,19 @@ import { RouterLink, RouterView } from "vue-router";
         </ul>
       </div>
     </div>
+    <welcome-props welcome=" Welcome to Final Space API" />
   </nav>
   <RouterView />
 </template>
+<script>
+export default {
+  data() {
+    return {
+      message: "",
+    };
+  },
+  components: {
+    "welcome-props": welcomeProps,
+  },
+};
+</script>

@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <div id="wrapper-hero">
     <img
@@ -6,9 +5,7 @@
       class="img-fluid"
       alt="space"
     />
-    <div class="home">
-      <h2>{{ home }}</h2>
-    </div>
+
     <div class="centered">
       <h1 :style="{ color: color }">FINAL SPACE</h1>
     </div>
@@ -45,6 +42,7 @@
     <div v-for="quote in quotes" :key="quote.id" class="quotes">
       <h2>{{ quote.quote }}</h2>
     </div>
+    <h2>{{ aQuote }}</h2>
     <!-- end hero div -->
   </div>
 </template>
@@ -56,24 +54,25 @@ export default {
       characters: [],
       quotes: [],
       home: "Welcome Home Space cowboy",
-      color: "firebrick",
+      color: "orange",
     };
   },
+
+  computed: {},
   created() {
     this.getCharacters();
+    
   },
   methods: {
     async getCharacters() {
       axios
         .get("https://finalspaceapi.com/api/v0/character?limit=4")
         .then((response) => (this.characters = response.data));
-      console.log(this.characters);
     },
     async getQuote() {
       axios
         .get("https://finalspaceapi.com/api/v0/quote/?limit=1")
         .then((response) => (this.quotes = response.data));
-      console.log(this.quotes);
     },
   },
 };
@@ -96,14 +95,13 @@ export default {
   height: 100%;
   overflow-x: hidden;
 }
-/* Center the text */
+
 .centered {
   position: absolute;
-  top: 15%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 100px;
 }
 
 #wrapper-hero > img {
@@ -131,7 +129,7 @@ export default {
   position: absolute;
   top: 140%;
   left: 40%;
-  color: black;
+  color: orange;
   text-align: center;
 }
 </style>
