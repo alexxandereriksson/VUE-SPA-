@@ -1,13 +1,9 @@
 <script setup>
-import HeroImg from "../components/HeroImg.vue";
+import HomeComponent from "../components/HomeComponent.vue";
 </script>
 
 <template>
-  <HeroImg />
+  <HomeComponent />
 </template>
 
-<style>
-.welcome {
-  color: grey;
-}
-</style>
+<style></style>

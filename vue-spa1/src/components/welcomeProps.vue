@@ -6,14 +6,14 @@
 
 <script>
 export default {
- 
   props: {
-    welcome: String,
+    welcome: { type: String, required: true },
   },
+  
 };
 </script>
 <style scoped>
 h4 {
-  color: white;
+  color: orange;
 }
 </style>

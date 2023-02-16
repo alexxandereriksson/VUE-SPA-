@@ -1,16 +1,9 @@
 <template>
-  <div id="wrapper-hero">
-    <img
-      src="../assets/img/casey-horner-RmoWqDCqN2E-unsplash.jpg"
-      class="img-fluid"
-      alt="space"
-    />
-
+  <div class="hero-image">
     <div class="centered">
       <h1 :style="{ color: color }">FINAL SPACE</h1>
     </div>
     <!-- Card -->
-
     <div class="row">
       <div class="col">
         <div
@@ -42,7 +35,7 @@
     <div v-for="quote in quotes" :key="quote.id" class="quotes">
       <h2>{{ quote.quote }}</h2>
     </div>
-    <h2>{{ aQuote }}</h2>
+
     <!-- end hero div -->
   </div>
 </template>
@@ -57,11 +50,8 @@ export default {
       color: "orange",
     };
   },
-
-  computed: {},
   created() {
     this.getCharacters();
-    
   },
   methods: {
     async getCharacters() {
@@ -78,56 +68,45 @@ export default {
 };
 </script>
 <style scoped>
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/img/casey-horner-RmoWqDCqN2E-unsplash.jpg);
+  height: 150vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 .col {
-  margin-top: 40vh;
+  margin-top: 20vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 56%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#wrapper-hero img {
-  margin: 0 auto;
-  height: 100%;
-  overflow-x: hidden;
 }
 
 .centered {
   position: absolute;
-  top: 25%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
 }
 
-#wrapper-hero > img {
-  opacity: 0.9;
-  height: 150vh;
-  width: 100%;
-}
-.home {
-  position: absolute;
-  font-size: 100px;
-}
 #wrapper-hero > div.home {
   top: 10%;
   color: white;
 }
-.characters {
+
+div > div.quotes {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 3rem;
-}
-#wrapper-hero > div.quotes {
-  position: absolute;
-  top: 140%;
+  top: 85%;
   left: 40%;
   color: orange;
   text-align: center;
