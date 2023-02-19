@@ -9,7 +9,6 @@ export default {
   props: {
     welcome: { type: String, required: true },
   },
-  
 };
 </script>
 <style scoped>

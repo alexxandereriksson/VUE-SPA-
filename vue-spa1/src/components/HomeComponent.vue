@@ -72,7 +72,7 @@ export default {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../assets/img/casey-horner-RmoWqDCqN2E-unsplash.jpg);
   height: 150vh;
-  width: 100%;
+  max-width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -110,5 +110,16 @@ div > div.quotes {
   left: 40%;
   color: orange;
   text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  div > div.row > div {
+    padding-top: 10vh;
+  }
+}
+@media screen and (max-width: 600px) {
+  div > div.row > div {
+    padding-top: 200vh;
+  }
 }
 </style>

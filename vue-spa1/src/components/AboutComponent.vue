@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+import CustomButton from "./CustomButton.vue";
+</script>
 <template>
   <div class="hero-image">
     <div id="message">
-      <label for="text">Message to space:</label>
+      <label for="text"><b> Message to space:</b></label>
       <label for="text">
         <em> Min/10 Max/30</em> <b>{{ msgLength }}</b></label
       >
@@ -30,7 +32,9 @@
       </button>
       <p>{{ spacemsg }}</p>
     </div>
+    <custom-button @custom-event="onEmit"></custom-button>
   </div>
+
 </template>
 <script>
 export default {
@@ -48,8 +52,13 @@ export default {
   methods: {
     onClick() {
       this.spacemsg = this.message;
-      this.$emit('custom-event')
     },
+    onEmit() {
+     console.log(this.message);
+    },
+  },
+  components: {
+    CustomButton,
   },
   watch: {
     spacemsg(newMsg) {
@@ -85,7 +94,7 @@ label {
   color: orange;
 }
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(../assets/img/casey-horner-RmoWqDCqN2E-unsplash.jpg);
   height: 100vh;
   width: 100%;
