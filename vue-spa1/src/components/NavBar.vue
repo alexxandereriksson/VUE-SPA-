@@ -34,6 +34,15 @@ import WelcomeProps from "./WelcomeProps.vue";
               >About</RouterLink
             >
           </li>
+          <li class="nav-item">
+            <RouterLink
+              class="nav-link active"
+              aria-current="page"
+              style="color: white"
+              to="/third/PAGE"
+              >Third</RouterLink
+            >
+          </li>
         </ul>
       </div>
     </div>
